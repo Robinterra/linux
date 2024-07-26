@@ -1297,3 +1297,11 @@ u8 get_this_hybrid_cpu_type(void)
 
 	return cpuid_eax(0x0000001a) >> X86_HYBRID_CPU_TYPE_ID_SHIFT;
 }
+
+void intel_identify_hybrid_cpu_type(struct cpuinfo_x86 *c)
+{
+	if (boot_cpu_data.x86_vendor != X86_VENDOR_INTEL)
+		return;
+
+	c->topo.hybrid_cpu_type = get_this_hybrid_cpu_type();
+}

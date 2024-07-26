@@ -105,6 +105,9 @@ struct cpuinfo_topology {
 	// Cache level topology IDs
 	u32			llc_id;
 	u32			l2c_id;
+
+	// Hybrid cpu type - Intel specific
+	u8			hybrid_cpu_type;
 };
 
 struct cpuinfo_x86 {
